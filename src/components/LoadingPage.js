@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Typed from 'typed.js';
+import Typed from "typed.js";
 import './LoadingPage.css';
 
 const LoadingPage = ({ strings = ['Loading...'], typeSpeed = 100, backSpeed = 50, loop = true }) => {
