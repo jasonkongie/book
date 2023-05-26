@@ -7,7 +7,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearTimeout(timer);
@@ -23,8 +23,8 @@ const App = () => {
         <div className="gallery-loading">
           <LoadingPage
             strings={["My footprint of consciousness..."]}
-            typeSpeed={10}
-            backSpeed={50}
+            typeSpeed={70}
+            backSpeed={70}
             loop={true}
           />
         </div>
