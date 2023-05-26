@@ -6,9 +6,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const visited = localStorage.getItem('visited_gallery');
 
-    if (!visited) {
       const timer = setTimeout(() => {
         setIsLoading(false);
         localStorage.setItem('visited_gallery', true);
@@ -17,10 +15,7 @@ const App = () => {
       return () => {
         clearTimeout(timer);
       };
-    } else {
-      setIsLoading(false);
-    }
-  }, []);
+    } );
 
   return (
     <div className="pdf">
@@ -28,9 +23,9 @@ const App = () => {
         <div className="gallery-loading">
           <LoadingPage
             strings={["Custom text 1.", "Custom text 2."]}
-            typeSpeed={100}
+            typeSpeed={50}
             backSpeed={50}
-            loop={false}
+            loop={true}
           />
         </div>
       ) : (

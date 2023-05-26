@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
 import './LoadingPage.css';
 
-function LoadingPage() {
+const LoadingPage = ({ strings = ['Loading...'], typeSpeed = 100, backSpeed = 50, loop = true }) => {
+  const el = useRef(null);
+
+  useEffect(() => {
+    const typedOptions = {
+      strings,
+      typeSpeed,
+      backSpeed,
+      loop,
+    };
+
+    const typed = new Typed(el.current, typedOptions);
+
+    return () => {
+      typed.destroy();
+    };
+  }, [strings, typeSpeed, backSpeed, loop, el]);
+
   return (
-    <div className="loading-page">
-      My footprint of consciousness. 
+    <div className="loading-container">
+      <div className="loading-element">
+        <span ref={el}></span>
+      </div>
     </div>
   );
-}
+};
 
 export default LoadingPage;
