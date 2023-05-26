@@ -22,8 +22,8 @@ const App = () => {
       {isLoading ? (
         <div className="gallery-loading">
           <LoadingPage
-            strings={["Welcome to my abstraction of ideas."]}
-            typeSpeed={50}
+            strings={["My footprint of consciousness..."]}
+            typeSpeed={10}
             backSpeed={50}
             loop={true}
           />
