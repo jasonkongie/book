@@ -2,19 +2,15 @@ import { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 
 function App() {
-  const [numPages, setNumPages] = useState(null);
-
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  const [pdfFiles, setPdfFiles] = useState(["pdf1.pdf", "pdf2.pdf"]); // replace with your actual PDF file names
 
   return (
     <div>
-      <Document file="somefile.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-        {Array.from(new Array(numPages), (el, index) => (
-          <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-        ))}
-      </Document>
+      {pdfFiles.map(pdf => (
+        <Document file={pdf} key={pdf}>
+          <Page pageNumber={1} />
+        </Document>
+      ))}
     </div>
   );
 }
