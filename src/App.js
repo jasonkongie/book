@@ -9,7 +9,6 @@ const App = () => {
 
       const timer = setTimeout(() => {
         setIsLoading(false);
-        localStorage.setItem('visited_gallery', true);
       }, 3000);
 
       return () => {
@@ -22,7 +21,7 @@ const App = () => {
       {isLoading ? (
         <div className="gallery-loading">
           <LoadingPage
-            strings={["Custom text 1.", "Custom text 2."]}
+            strings={["Welcome to my abstraction of ideas."]}
             typeSpeed={50}
             backSpeed={50}
             loop={true}

@@ -21,10 +21,8 @@ const LoadingPage = ({ strings = ['Loading...'], typeSpeed = 100, backSpeed = 50
   }, [strings, typeSpeed, backSpeed, loop, el]);
 
   return (
-    <div className="loading-container">
-      <div className="loading-element">
+    <div className="loading-page">
         <span ref={el}></span>
-      </div>
     </div>
   );
 };
