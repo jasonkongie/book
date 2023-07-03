@@ -5,14 +5,14 @@
   background-image: url('./world-map.jpeg');
   background-size: 325% 325%; 
   background-position: 100% 30%; 
-  animation: pan 4s linear; 
+  animation: pan 3s linear; 
 }
 
 .plane {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(0.4); 
+  transform: translate(-50%, -50%) scale(0.25); 
   background: url('./plane.png');
   background-size: cover;
 }
@@ -32,6 +32,6 @@
     background-position: 90% 25%; 
   }
   100% {
-    background-position: 0% 45%; 
+    background-position: 0% 40%; 
   }
 }

@@ -9,7 +9,7 @@ const App = () => {
     const timer = setTimeout(() => {
       setIsLoading(false);
       window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSf3I4zoZQCArKw60wk9ynrixiN1ZtvzDsEsZxcsSDcgBznvsQ/viewform';
-    }, 3650); // Reduced time for faster movement
+    }, 3500); // Reduced time for faster movement
 
     return () => clearTimeout(timer);
   }, []);
