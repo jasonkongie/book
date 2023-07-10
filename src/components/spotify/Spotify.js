@@ -118,5 +118,3 @@ export const Spotify = () => {
     </ChakraProvider>
   )
 }
-
-// export { SpotifyTopArtists, SpotifyTopItems, SpotifyNowPlaying};
