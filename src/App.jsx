@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import LoadingPage from './components/LoadingPage';
+import LoadingPage from './components/LoadingPage/LoadingPage';
 
 
 const App = () => {

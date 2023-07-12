@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LoadingPage from './LoadingPage';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 const Book = () => {
   const [isLoading, setIsLoading] = useState(true);
