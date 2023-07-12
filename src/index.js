@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from './App';
 import MuseumProject from './components/MuseumProject';
 import {Spotify} from './components/Music/Spotify';
-import Book from './components/Book/book';
+import Book from './components/Journal/book';
 import Party from './components/Party/Party'; // import the Party component
 import RedirectComponent from './components/Redirect/RedirectComponent'; 
 
