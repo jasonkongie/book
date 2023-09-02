@@ -20,6 +20,9 @@
     line-height: 1.42;
     font-family: 'Expletus Sans', 'IBM Plex Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 50px 60px;  /* Increased padding */
+    overflow-y: auto;  /* Enables vertical scrolling */
+
 }
 
 .terminal__line {
