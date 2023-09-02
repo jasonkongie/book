@@ -9,6 +9,7 @@ import {Spotify} from './components/Music/Spotify';
 import Book from './components/Journal/book';
 import Party from './components/Party/Party'; // import the Party component
 import RedirectComponent from './components/Redirect/RedirectComponent'; 
+import CustomTerminal from './components/CustomTerminal.tsx'
 
 const root = createRoot(document.getElementById('root')); // Create a root
 
@@ -24,6 +25,7 @@ root.render(
         <Route path="/instagram" element={<RedirectComponent targetUrl="https://www.instagram.com/jasonkongie/" delay={1000} />} />
         <Route path="/twitter" element={<RedirectComponent targetUrl="https://twitter.com/jasonkongie" delay={1000} />} />
         <Route path="/threads" element={<RedirectComponent targetUrl="https://www.threads.net/@jasonkongie" delay={1000} />} />
+        <Route path="/apply" element={<CustomTerminal />} />
       </Routes>
     </Router>
   </React.StrictMode>

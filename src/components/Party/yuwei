@@ -1,0 +1,17 @@
+
+
+answer = input("is Yu Wei good at piano?")
+
+if answer == "yes":
+    print("Yu Wei is better than Lang Lang")
+else:
+    for i in range(1000):
+        print("Yu Wei will never graduate from music school")
+
+
+
+computer engineer
+
+- computer science
+
+- electrical engineering

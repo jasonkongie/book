@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="app">
       <LoadingPage
-        strings={["I am a messenger", "and here's my message: FUCK YOUR APPROVAL. "]}
+        strings={["Welcome to my digital footprint"]}
         typeSpeed={70}
         backSpeed={70}
         loop={true}

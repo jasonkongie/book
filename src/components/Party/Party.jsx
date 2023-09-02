@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../App.css'; // Import the CSS file
+import './Party.css'; // Import the CSS file
 import planeImage from './plane.png'; // Replace this with path to your plane image.
 
 const Party = () => {
@@ -15,7 +15,7 @@ const Party = () => {
   }, []);
 
   return (
-    <div className="app">
+    <div className="party-app">
       {isLoading ? (
         <div className="loading">
           <img src={planeImage} alt="Plane" className="plane" />
