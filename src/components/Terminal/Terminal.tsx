@@ -13,21 +13,24 @@ export const Terminal = forwardRef((props: TerminalProps, ref: ForwardedRef<HTML
   const terminalRef = useRef<HTMLDivElement>(null); // Create a ref for the terminal container
   const [input, setInputValue] = useState<string>('');
 
+  // Focus the input field when the component mounts
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
+  // Auto-scroll to bottom when history changes
   useEffect(() => {
-    // Auto-scroll to bottom when history changes
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [history]);
 
+  // Function to focus the input field
   const focusInput = useCallback(() => {
     inputRef.current?.focus();
   }, []);
 
+  // Handle changes in the input field
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setInputValue(e.target.value);
@@ -35,6 +38,7 @@ export const Terminal = forwardRef((props: TerminalProps, ref: ForwardedRef<HTML
     []
   );
 
+  // Handle keyboard events in the input field
   const handleInputKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
@@ -49,7 +53,7 @@ export const Terminal = forwardRef((props: TerminalProps, ref: ForwardedRef<HTML
   );
 
   return (
-    <div className="terminal" ref={terminalRef} onClick={focusInput}> {/* Assign the ref */}
+    <div className="terminal" ref={terminalRef} onClick={focusInput}>
       {history.map((line, index) => (
         <div className="terminal__line" key={`terminal-line-${index}-${line}`}>
           {line}
@@ -70,4 +74,3 @@ export const Terminal = forwardRef((props: TerminalProps, ref: ForwardedRef<HTML
     </div>
   );
 });
-
