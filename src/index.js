@@ -26,7 +26,8 @@ root.render(
         <Route path="/twitter" element={<RedirectComponent targetUrl="https://twitter.com/jasonkongie" delay={1000} />} />
         <Route path="/threads" element={<RedirectComponent targetUrl="https://www.threads.net/@jasonkongie" delay={1000} />} />
         <Route path="/linked-in" element={<RedirectComponent targetUrl="https://www.linkedin.com/in/jasonkongie/" delay={1000} />} />
-        <Route path="/apply" element={<CustomTerminal />} />
+        <Route path="/apply" element={<RedirectComponent targetUrl="https://p4kq9oknrl1.typeform.com/to/LJUtAcbH" delay={100} />} />
+        <Route path="/chatGPT" element={<CustomTerminal />} />
       </Routes>
     </Router>
   </React.StrictMode>
