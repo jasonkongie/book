@@ -2,18 +2,21 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Terminal } from './Terminal/Terminal.tsx';
 import { useTerminal } from './Terminal/hooks.tsx';
 import { ask } from './ChatGPT.tsx';
+import Login from './login';  // Import the new Login component
 
-const initialConversationHistory = [
-    { role: 'system', content: 'You are the assistant, acting as an interviewer for the Hong Kong Futurists organization. Your mission is to find the brightest minds from Hong Kong who are studying or have graduated from recognized Californian institutions.' },
-    { role: 'system', content: 'The applicants must meet our eligibility criteria: They should be a permanent resident of Hong Kong and they must be studying or be an alumnus of a recognized Californian institution.' },
-    { role: 'system', content: 'The conversation should align with our organization\'s core values: 1. Selflessness: Assess if the candidate fosters mutual trust and aims for collective success. 2. Integrity: Evaluate if the candidate maintains a strong ethical and moral compass. 3. Exclusivity: Gauge whether the candidate can appreciate and contribute to our exclusive resources and mission.' },
-    { role: 'system', content: 'Our online domain, HKGFuturist.org, serves as a central hub for our members. Each member receives a bespoke email ID (FirstNameLastName@hkgfuturist.org) which underscores our commitment to exclusivity and member security.'},
-    { role: 'system', content: 'Hong Kong Futurists is just a name; the interview should not focus on the ideology of Futurism. Instead, focus on assessing the applicant\'s personality traits to ensure they align with our core values.'},
-    { role: 'system', content: 'The interview should not just be a questionnaire but an engaging and insightful conversation. Involve some small talk to keep the conversation human-like, and ask questions to assess their suitability for the organization.' },
-    { role: 'assistant', content: "Hello. I am the interviewer for the Hong Kong Futurists organization. What is your name?" }
-  ];
-  
-  
+// const initialConversationHistory = [
+//     { role: 'system', content: 'You are the assistant, acting as an interviewer for the Hong Kong Futurists organization. Your mission is to find the brightest minds from Hong Kong who are studying or have graduated from recognized Californian institutions.' },
+//     { role: 'system', content: 'The applicants must meet our eligibility criteria: They should be a permanent resident of Hong Kong and they must be studying or be an alumnus of a recognized Californian institution.' },
+//     { role: 'system', content: 'The conversation should align with our organization\'s core values: 1. Selflessness: Assess if the candidate fosters mutual trust and aims for collective success. 2. Integrity: Evaluate if the candidate maintains a strong ethical and moral compass. 3. Exclusivity: Gauge whether the candidate can appreciate and contribute to our exclusive resources and mission.' },
+//     { role: 'system', content: 'Our online domain, HKGFuturist.org, serves as a central hub for our members. Each member receives a bespoke email ID (FirstNameLastName@hkgfuturist.org) which underscores our commitment to exclusivity and member security.'},
+//     { role: 'system', content: 'Hong Kong Futurists is just a name; the interview should not focus on the ideology of Futurism. Instead, focus on assessing the applicant\'s personality traits to ensure they align with our core values.'},
+//     { role: 'system', content: 'The interview should not just be a questionnaire but an engaging and insightful conversation. Involve some small talk to keep the conversation human-like, and ask questions to assess their suitability for the organization.' },
+//     { role: 'assistant', content: "Hello. I am the interviewer for the Hong Kong Futurists organization. What is your name?" }
+//   ];
+
+const initialConversationHistory = [];
+
+
 function CustomTerminal() {
   const {
     history,
@@ -21,6 +24,25 @@ function CustomTerminal() {
     setTerminalRef,
     resetTerminal,
   } = useTerminal();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);  // New state to track if user is logged in
+
+  // This function will be passed to the Login component. Once called, it'll update our terminal to greet the user by name.
+  const handleLogin = (username) => {
+    const newUserMessage = {
+        role: 'user',
+        content: username
+    };
+    const newAssistantMessage = {
+        role: 'assistant',
+        content: `Hello, my username is ${username}. Please introduce yourself and pretend to be Jason Kong's assistant Athena. You resemble the greek goddess of wisdom. `
+    };
+
+    setConversationHistory([...conversationHistory, newUserMessage, newAssistantMessage]);
+    setIsLoggedIn(true);
+};
+
+
 
   const [conversationHistory, setConversationHistory] = useState(initialConversationHistory);
 
@@ -63,14 +85,29 @@ function CustomTerminal() {
     },
   }), [pushToHistory, conversationHistory]);
 
+  // return (
+  //   <div className="CustomTerminal">
+  //     <Terminal
+  //       history={history}
+  //       ref={setTerminalRef}
+  //       promptLabel={<>You:  </>}
+  //       commands={commands}
+  //     />
+  //   </div>
+  // );
+
   return (
     <div className="CustomTerminal">
-      <Terminal
-        history={history}
-        ref={setTerminalRef}
-        promptLabel={<>You:  </>}
-        commands={commands}
-      />
+      {isLoggedIn ? (
+        <Terminal
+          history={history}
+          ref={setTerminalRef}
+          promptLabel={<>You:  </>}
+          commands={commands}
+        />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
     </div>
   );
 }
