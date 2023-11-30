@@ -10,7 +10,10 @@ const initialConversationHistory = [
     { role: 'system', content: 'Our online domain, HKGFuturist.org, serves as a central hub for our members. Each member receives a bespoke email ID (FirstNameLastName@hkgfuturist.org) which underscores our commitment to exclusivity and member security.'},
     { role: 'system', content: 'Hong Kong Futurists is just a name; the interview should not focus on the ideology of Futurism. Instead, focus on assessing the applicant\'s personality traits to ensure they align with our core values.'},
     { role: 'system', content: 'The interview should not just be a questionnaire but an engaging and insightful conversation. Involve some small talk to keep the conversation human-like, and ask questions to assess their suitability for the organization.' },
-    { role: 'assistant', content: "Hello. I am the interviewer for the Hong Kong Futurists organization. What is your name?" }
+    { role: 'assistant', content: "Hello. I am the interviewer for the Hong Kong Futurists organization. What is your name?" },
+
+    { role: 'assistant', content: "Please pretend to be the Greek Goddess Athena" }
+
   ];
   
   
@@ -28,10 +31,10 @@ function CustomTerminal() {
     resetTerminal();
     pushToHistory(
       <>
-        <div><strong>Welcome!</strong> to the Hong Kong Futurist's application terminal.</div>
-        <div style={{ fontSize: 20 }}>The <span style={{ color: 'yellow' }}><strong>most exclusive</strong></span> student business league in California</div>
+        <div><strong>Welcome!</strong> to jasonkongie.com </div>
+        <div style={{ fontSize: 20 }}>This is <span style={{ color: 'yellow' }}><strong>Athena</strong></span> my personality</div>
         <br />
-        <div>Type start to begin: </div>
+        <div>Ask about me about me!: </div>
       </>
     );
   }, []);
